@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 if [ $# -lt 2 ] || [ $# -eq 3 ]
   then
     echo "Usage: ./compile_linux.sh <architecture> <buildType> [<gitrepo> <gitref>]"
@@ -23,7 +25,7 @@ touch out/linux32/prebuilt.txt
 rm -rf jcef/binary_distrib
 
 #Cache build image to not download it again each time (speedup for local builds)
-docker pull friwidev/jcefdocker:linux-latest
+#docker pull friwidev/jcefdocker:linux-latest
 
 #Execute buildx with linux dockerfile and output to current directory
 if [ $# -eq 2 ]

@@ -1,4 +1,7 @@
-FROM friwidev/jcefdocker:linux-latest AS stage
+FROM debian:bullseye AS stage
+
+RUN apt-get update
+RUN apt-get install -y git openjdk-11-jdk rsync python3 python-is-python3 cmake build-essential ninja-build libgbm-dev libxkbcommon-dev libpango1.0-dev libcairo-dev
 
 LABEL jcefbuild=true
 
